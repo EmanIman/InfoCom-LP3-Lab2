@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_cors import CORS
 import subprocess
 import  requests
+import json
 
 
 app = Flask(__name__)
@@ -11,13 +12,16 @@ app.secret_key = 'dljsaklqk24e21cjn!Ew@@dsa5'
 
 #Give a unique ID for the drone
 #===================================================================
-myID = "DRONE_ID"
+myID = "Test"
 #===================================================================
 
 # Get initial longitude and latitude the drone
 #===================================================================
-current_longitude = 0
-current_latitude = 0
+with open('data.json', 'r') as f:
+    data = json.load(f)
+
+current_longitude = data['long']
+current_latitude = data['lat']
 #===================================================================
 
 drone_info = {'id': myID,
@@ -28,7 +32,7 @@ drone_info = {'id': myID,
 
 # Fill in the IP address of server, and send the initial location of the drone to the SERVER
 #===================================================================
-SERVER="http://SERVER_IP:PORT/drone"
+SERVER="http://10.11.44.125:5001/drone"
 with requests.Session() as session:
     resp = session.post(SERVER, json=drone_info)
 #===================================================================
@@ -38,8 +42,8 @@ def main():
     coords = request.json
     # Get current longitude and latitude of the drone 
     #===================================================================
-    current_longitude = 0
-    current_latitude = 0
+    current_longitude = drone_info['longitude']
+    current_latitude = drone_info['latitude']
     #===================================================================
     from_coord = coords['from']
     to_coord = coords['to']
