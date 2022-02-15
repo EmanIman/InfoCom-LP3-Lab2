@@ -32,6 +32,7 @@ def run(id, current_coords, from_coords, to_coords, SERVER_URL):
                         }
             resp = session.post(SERVER_URL, json=drone_info)
     d_long, d_la =  getMovement(drone_coords, to_coords)
+    print("past first while")
     while ((to_coords[0] - drone_coords[0])**2 + (to_coords[1] - drone_coords[1])**2)*10**6 > 0.0002:
         drone_coords = moveDrone(drone_coords, d_long, d_la)
         with requests.Session() as session:
@@ -41,6 +42,7 @@ def run(id, current_coords, from_coords, to_coords, SERVER_URL):
                           'status': 'busy'
                         }
             resp = session.post(SERVER_URL, json=drone_info)
+    print("past second while")
     with requests.Session() as session:
             drone_info = {'id': id,
                           'longitude': drone_coords[0],
@@ -48,6 +50,7 @@ def run(id, current_coords, from_coords, to_coords, SERVER_URL):
                           'status': 'idle'
                          }
             resp = session.post(SERVER_URL, json=drone_info)
+    print("while done")
     return drone_coords[0], drone_coords[1]
    
 if __name__ == "__main__":
