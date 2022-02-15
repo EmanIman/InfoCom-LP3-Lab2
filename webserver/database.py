@@ -9,7 +9,7 @@ CORS(app)
 
 # change this to connect to your redis server
 # ===============================================
-redis_server = redis.Redis("10.11.44.125", decode_responses=True, charset="unicode_escape")
+redis_server = redis.Redis("localhost", decode_responses=True, charset="unicode_escape")
 # ===============================================
 
 @app.route('/drone', methods=['POST'])
