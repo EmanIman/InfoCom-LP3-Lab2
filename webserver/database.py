@@ -26,7 +26,7 @@ def drone():
     # Note that you need to store the metioned infomation for all drones in Redis, think carefully how to store them
     # =========================================================================================
     info = {'long': drone_longitude, 'lat': drone_latitude, 'status': drone_status, 'ip': droneIP, 'id': droneID} 
-    redis_server.set(f"{droneID}", info)
+    redis_server.set(f"{droneID}", json.dumps(info))
 
 
 
