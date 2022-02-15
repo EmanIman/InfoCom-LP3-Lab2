@@ -19,6 +19,7 @@ def moveDrone(src, d_long, d_la):
     return (x, y)
 
 def run(id, current_coords, from_coords, to_coords, SERVER_URL):
+    print("in rund")
     drone_coords = current_coords
     d_long, d_la =  getMovement(drone_coords, from_coords)
     while ((from_coords[0] - drone_coords[0])**2 + (from_coords[1] - drone_coords[1])**2)*10**6 > 0.0002:
@@ -54,6 +55,8 @@ if __name__ == "__main__":
     #===================================================================
     SERVER_URL = "http://10.11.44.125:5001/drone"
     #===================================================================
+
+    print("in sim")
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--clong", help='current longitude of drone location' ,type=float)

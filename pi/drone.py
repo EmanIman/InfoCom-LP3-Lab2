@@ -39,6 +39,7 @@ with requests.Session() as session:
 
 @app.route('/', methods=['POST'])
 def main():
+    print("innan coords")
     coords = request.json
     # Get current longitude and latitude of the drone 
     #===================================================================
@@ -47,6 +48,7 @@ def main():
     #===================================================================
     from_coord = coords['from']
     to_coord = coords['to']
+    print("innan subprocess")
     subprocess.Popen(["python3", "simulator.py", '--clong', str(current_longitude), '--clat', str(current_latitude),
                                                  '--flong', str(from_coord[0]), '--flat', str(from_coord[1]),
                                                  '--tlong', str(to_coord[0]), '--tlat', str(to_coord[1]),
