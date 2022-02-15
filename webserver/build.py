@@ -53,6 +53,8 @@ def get_drones():
     #=============================================================================================================================================
     drone_dict = {}
     info = redis_server.get("Test")
+    if info == None:
+        info = {'long': 0, 'lat': 0, 'status': 'idle', 'ip': '10.11.44.126', 'id': 'Test'}
     
     translated = translate((info['long'], info['lat']))
     drone_dict[info['id']] = {'longitude': translated[0], 'latitude': translated[1], 'status': info['staus']}
