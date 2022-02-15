@@ -52,18 +52,27 @@ def get_drones():
     # use function translate() to covert the coodirnates to svg coordinates
     #=============================================================================================================================================
     drone_dict = {}
-    info = redis_server.get("Test")
-    info = json.loads(info)
-    print(info)
-    if info == None:
-        info = {'long': 1000.0, 'lat': 1000.0, 'status': 'idle', 'ip': '10.11.44.126', 'id': 'Test'}
+    drones = ["Test", "drone124"]
+    # info = redis_server.get("Test")
+    # info = json.loads(info)
+    # print(info)
+    # if info == None:
+    #     info = {'long': 13.21008, 'lat': 55.71106, 'status': 'idle', 'id': 'Test'}
     
-    translated = translate((info['long'], info['lat']))
+    # translated = translate((float(info['long']), float(info['lat'])))
     # drone_dict[info['id']] = {'longitude': translated[0], 'latitude': translated[1], 'status': info['status']}
-    drone_dict[info['id']] = {'longitude': translated[0], 'latitude': translated[1], 'status': info['status']}
+    for d in drones:
+        info = redis_server.get(d)
+        info = json.loads(info)
+        if info == None:
+            info = {'long': 13.21008, 'lat': 55.71106, 'status': 'idle', 'id': d}
+        translated = translate((float(info['long']), float(info['lat'])))
+        drone_dict[d] = {'longitude': translated[0], 'latitude': translated[1], 'status': info['status']}
 
 
     return jsonify(drone_dict)
 
 if __name__ == "__main__":
+    g = translate((13.21008, 55.71106))
+    print(g)
     app.run(debug=True, host='0.0.0.0', port='5000')
