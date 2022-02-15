@@ -57,7 +57,7 @@ def get_drones():
         info = {'long': 0, 'lat': 0, 'status': 'idle', 'ip': '10.11.44.126', 'id': 'Test'}
     
     translated = translate((info['long'], info['lat']))
-    drone_dict[info['id']] = {'longitude': translated[0], 'latitude': translated[1], 'status': info['staus']}
+    drone_dict[info['id']] = {'longitude': translated[0], 'latitude': translated[1], 'status': info['status']}
 
 
     return jsonify(drone_dict)
