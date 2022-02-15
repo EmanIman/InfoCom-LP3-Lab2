@@ -53,7 +53,7 @@ def route_planner():
 
         drone = None
 
-        for k, v in drones:
+        for k, v in drones.items():
             info = redis_server.get(k)
             info = json.loads(info)
             if info['status'] == 'idle':
