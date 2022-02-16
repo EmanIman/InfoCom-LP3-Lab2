@@ -39,12 +39,14 @@ with requests.Session() as session:
 
 @app.route('/', methods=['POST'])
 def main():
+    with open('data.json', 'r') as f:
+        data = json.load(f)
     print("innan coords")
     coords = request.json
     # Get current longitude and latitude of the drone 
     #===================================================================
-    current_longitude = drone_info['longitude']
-    current_latitude = drone_info['latitude']
+    current_longitude = data['longitude']
+    current_latitude = data['latitude']
     #===================================================================
     from_coord = coords['from']
     to_coord = coords['to']

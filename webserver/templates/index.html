@@ -25,7 +25,7 @@
           }
         }
       };
-      xhttp.open("POST", "http://0.0.0.0:5002/planner", true); // changed ip from 127.0.0.1 to 0.0.0.0
+      xhttp.open("POST", "http://127.0.0.1:5002/planner", true); // maybe change to 0.0.0.0
       xhttp.send(JSON.stringify(data));
     }
   </script>
@@ -39,6 +39,9 @@
       var color = 'red';
       if (status == 'idle'){
         color = 'green'
+      }
+      if (status == 'waiting'){
+        color = 'yellow'
       }
       if(circleNode == null){
         circleNode = doc_svg.createElementNS("http://www.w3.org/2000/svg", "circle");
