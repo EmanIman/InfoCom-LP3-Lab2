@@ -3,13 +3,30 @@ from flask_cors import CORS
 import subprocess
 import  requests
 import json
+from sense_hat import SenseHat
 
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 app.secret_key = 'dljsaklqk24e21cjn!Ew@@dsa5'
 
+sense = SenseHat()
+g = (0, 255, 0)
+w = (255, 255, 255)
 
+idle_pixels = [
+    g, g, g, g, g, g, g, w,
+    g, g, g, g, g, g, w, w,
+    g, g, g, g, g, w, w, g,
+    w, g, g, g, w, w, g, g,
+    w, w, g, w, w, g, g, g,
+    g, w, w, w, g, g, g, g,
+    g, g, w, g, g, g, g, g,
+    g, g, g, g, g, g, g, g,
+]
+
+def display_status(pixels):
+    sense.set_pixels(pixels)
 #Give a unique ID for the drone
 #===================================================================
 myID = "Test"
@@ -36,6 +53,9 @@ SERVER="http://10.11.44.125:5001/drone"
 with requests.Session() as session:
     resp = session.post(SERVER, json=drone_info)
 #===================================================================
+
+# drone starts set senshat led to be green/idle symbol
+display_status(idle_pixels)
 
 @app.route('/', methods=['POST'])
 def main():
