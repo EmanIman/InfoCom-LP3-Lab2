@@ -122,9 +122,10 @@ def run(id, current_coords, from_coords, to_coords, SERVER_URL):
     while mixer.music.get_busy() == True:
         while joystick:
             for event in sense.stick.get_events():
-                if event.acction == "pressed":
+                if event.action == "pressed":
                     joystick = False
 
+        joystick = True
         mixer.music.stop()
         mixer.music.unload()
 
@@ -156,9 +157,10 @@ def run(id, current_coords, from_coords, to_coords, SERVER_URL):
     while mixer.music.get_busy() == True:
         while joystick:
             for event in sense.stick.get_events():
-                if event.acction == "pressed":
+                if event.action == "pressed":
                     joystick = False
 
+        joystick = True
         mixer.music.stop()
         mixer.music.unload()
 
