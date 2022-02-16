@@ -45,8 +45,8 @@ def main():
     coords = request.json
     # Get current longitude and latitude of the drone 
     #===================================================================
-    current_longitude = data['longitude']
-    current_latitude = data['latitude']
+    current_longitude = data['long']
+    current_latitude = data['lat']
     #===================================================================
     from_coord = coords['from']
     to_coord = coords['to']
