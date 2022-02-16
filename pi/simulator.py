@@ -20,47 +20,47 @@ y = (255, 255, 0)
 w = (255, 255, 255)
 
 idle_pixels = [
-g, g, g, g, g, g, g, w,
-g, g, g, g, g, g, w, w,
-g, g, g, g, g, w, w, g,
-w, g, g, g, w, w, g, g,
-w, w, g, w, w, g, g, g,
-g, w, w, w, g, g, g, g,
-g, g, w, g, g, g, g, g,
-g, g, g, g, g, g, g, g,
+    g, g, g, g, g, g, g, w,
+    g, g, g, g, g, g, w, w,
+    g, g, g, g, g, w, w, g,
+    w, g, g, g, w, w, g, g,
+    w, w, g, w, w, g, g, g,
+    g, w, w, w, g, g, g, g,
+    g, g, w, g, g, g, g, g,
+    g, g, g, g, g, g, g, g,
 ]
 
 waiting_pixels = [
-y, y, w, w, w, w, y, y,
-y, y, w, w, w, w, y, y,
-y, y, w, w, w, w, y, y,
-y, y, y, w, w, y, y, y,
-y, y, y, w, w, y, y, y,
-y, y, w, y, y, w, y, y,
-y, y, w, y, y, w, y, y,
-y, y, w, w, w, w, y, y,
+    y, y, w, w, w, w, y, y,
+    y, y, w, w, w, w, y, y,
+    y, y, w, w, w, w, y, y,
+    y, y, y, w, w, y, y, y,
+    y, y, y, w, w, y, y, y,
+    y, y, w, y, y, w, y, y,
+    y, y, w, y, y, w, y, y,
+    y, y, w, w, w, w, y, y,
 ]
 
 busy_pixels = [
-r, w, r, r, r, r, w, r,
-r, w, w, r, r, w, w, r,
-r, r, w, w, w, w, r, r,
-r, r, r, w, w, r, r, r,
-r, r, w, w, w, w, r, r,
-r, w, w, r, r, w, w, r,
-r, w, r, r, r, r, w, r,
-r, r, r, r, r, r, r, r,
+    r, w, r, r, r, r, w, r,
+    r, w, w, r, r, w, w, r,
+    r, r, w, w, w, w, r, r,
+    r, r, r, w, w, r, r, r,
+    r, r, w, w, w, w, r, r,
+    r, w, w, r, r, w, w, r,
+    r, w, r, r, r, r, w, r,
+    r, r, r, r, r, r, r, r,
 ]
 
 clear_pixels = [
-b, b, b, b, b, b, b, b,
-b, b, b, b, b, b, b, b,
-b, b, b, b, b, b, b, b,
-b, b, b, b, b, b, b, b,
-b, b, b, b, b, b, b, b,
-b, b, b, b, b, b, b, b,
-b, b, b, b, b, b, b, b,
-b, b, b, b, b, b, b, b,
+    b, b, b, b, b, b, b, b,
+    b, b, b, b, b, b, b, b,
+    b, b, b, b, b, b, b, b,
+    b, b, b, b, b, b, b, b,
+    b, b, b, b, b, b, b, b,
+    b, b, b, b, b, b, b, b,
+    b, b, b, b, b, b, b, b,
+    b, b, b, b, b, b, b, b,
 ]
 
 def getMovement(src, dst):
