@@ -52,7 +52,8 @@ def get_drones():
     # use function translate() to covert the coodirnates to svg coordinates
     #=============================================================================================================================================
     drone_dict = {}
-    drones = ["Test", "drone124"]
+    # drones = ["Test", "drone124"]
+    drones = ["drone124"]
     # info = redis_server.get("Test")
     # info = json.loads(info)
     # print(info)
