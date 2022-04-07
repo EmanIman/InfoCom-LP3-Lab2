@@ -47,9 +47,9 @@ def route_planner():
         # 1. Find avialable drone in the database
         # if no drone is availble:
         # drones = ["Test", "drone124"]
-        drones = ["drone124"]
+        drones = ["Test"]
         # drones = {"Test": '10.11.44.126', "drone124": '10.11.44.124'}
-        drones = {"drone124": '10.11.44.124'}
+        drones = {"Test": '192.168.1.141'}
         # if drones == None:
         #     print("No drones in redis database idk man")
 

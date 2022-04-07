@@ -53,7 +53,7 @@ def get_drones():
     #=============================================================================================================================================
     drone_dict = {}
     # drones = ["Test", "drone124"]
-    drones = ["drone124"]
+    drones = ["Test"]
     # info = redis_server.get("Test")
     # info = json.loads(info)
     # print(info)
