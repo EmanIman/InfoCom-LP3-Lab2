@@ -28,6 +28,7 @@ def drone():
     info = {'long': drone_longitude, 'lat': drone_latitude, 'status': drone_status, 'ip': droneIP, 'id': droneID} 
     redis_server.set(f"{droneID}", json.dumps(info))
 
+    # if status is idle and queue has jobs then assignt first job from queue to drone
 
 
     # =======================================================================================
